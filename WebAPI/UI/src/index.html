@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Basic -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Mobile Metas -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Site Metas -->
+<title>Medical Interactions</title>
+<base href="/">
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!-- Site Icons -->
+<link rel="shortcut icon" href="assets/images/icons/icon.png" type="image/x-icon" />
+<link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+<!-- Site CSS -->
+<!-- Responsive CSS -->
+<link rel="stylesheet" href="assets/css/responsive.css">
+<!-- Custom CSS -->
+<link rel="stylesheet" href="assets/css/custom.css">
+<!-- <link rel="stylesheet" href="assets/css/splide.min.css"> -->
+
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="assets/table/datatables.css">
+
+<script type="text/javascript" src="assets/table/datatables.js"></script>
+
+<!-- <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+
+<script src="https://unpkg.com/swiper/js/swiper.min.js"></script> -->
+
+
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+<script>
+    $(document).ready(function() {
+        var swiper = new Swiper('.swiper-container', {
+            loop: true,
+            effect: 'coverflow',
+            centeredSlides: true,
+            loopFillGroupWithBlank: true,
+            slidesPerView: 3,
+            initialSlide: 3,
+            keyboardControl: true,
+            mousewheelControl: false,
+            lazyLoading: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                1199: {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                },
+                991: {
+                    slidesPerView: 3,
+                    spaceBetween: 10,
+                },
+                767: {
+                    slidesPerView: 2,
+                    spaceBetween: 10,
+                },
+                575: {
+                    slidesPerView: 1,
+                    spaceBetween: 3,
+                }
+            }
+        })
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        //you can set this, as long as it's not greater than the slides length
+        var show = 5;
+        var w = $('.slider').width() / show;
+        var l = $('.slide').length;
+
+        $('.slide').width(w);
+        $('.slide-container').width(w * l)
+
+        function slider() {
+            $('.slide:first-child').animate({
+                marginLeft: -w
+            }, 'slow', function() {
+                $(this).appendTo($(this).parent()).css({
+                    marginLeft: 0
+                });
+            });
+        }
+        var timer = setInterval(slider, 3000);
+
+        $('.slider').hover(function() {
+            clearInterval(timer);
+        }, function() {
+            timer = setInterval(slider, 3000);
+        });
+    });
+</script>
+
+</head>
+
+<body class="app_version" data-spy="scroll" data-target="#navbarApp" data-offset="98">
+
+    <app-root>
+        <!-- LOADER -->
+        <div id="preloader">
+            <img class="preloader" src="assets/images/loaders/loader-app.gif" alt="">
+        </div>
+        <!-- end loader -->
+        <!-- END LOADER -->
+    </app-root>
+
+    <!-- ALL JS FILES -->
+    <script src="assets/js/all.js"></script>
+
+
+    <!-- ALL PLUGINS -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <script src="assets/js/swiper.min.js"></script>
+
+
+
+
+</body>
+
+
+</html>
