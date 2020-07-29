@@ -26,10 +26,13 @@ db.sequelize.sync();
 
 // simple route
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to bezkoder application." });
+  res.json({ message: "Welcome to Hutech Drug Interactions application." });
 });
 
+// routes
+require('./routes/auth.routes')(app);
 require("./routes/users.routes")(app);
+require("./routes/drug.routes")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;

@@ -1,35 +1,35 @@
 const db = require("../models");
-const Drug = db.drug;
+const TuongTac = db.tuongTac;
 const Op = db.Sequelize.Op;
 
-//Get all from db: table-drug
+//Get all from db: tuongTac
 exports.findAll = (req, res) => {
-  const id = req.query.idThuoc;
+  const id = req.query.idTuongTac;
   var condition = id ? { id: { [Op.like]: `%${id}%` } } : null;
 
-  Drug.findAll({ where: condition })
+  TuongTac.findAll({ where: condition })
     .then(data => {
       res.send(data);
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving Drugs."
+          err.message || "Some error occurred while retrieving TuongTac."
       });
     });
 };
 
-// Find a single Drug with an id
+// Find a single TuongTac with an id
 exports.findOne = (req, res) => {
-  const id = req.params.idThuoc;
+  const id = req.params.idTuongTac;
 
-  Drug.findByPk(id)
+  TuongTac.findByPk(id)
     .then(data => {
       res.send(data);
     })
     .catch(err => {
       res.status(500).send({
-        message: "Error retrieving Drug with id=" + id
+        message: "Error retrieving TuongTac with id=" + id
       });
     });
 };

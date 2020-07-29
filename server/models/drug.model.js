@@ -55,6 +55,6 @@ module.exports = (sequelize, Sequelize) => {
         type: Sequelize.ENUM('true', 'false'),
         allowNull: true
       }
-    }, {timestamps: false, tableName: 'users'});
+    }, {timestamps: false, tableName: 'thuoc'});
     return Drug;
   };

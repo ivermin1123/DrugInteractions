@@ -1,20 +1,20 @@
 module.exports = (sequelize, Sequelize) => {
-    const User = sequelize.define("users", {
-      id: {
+    const TuongTac = sequelize.define("tuongTac", {
+      idTuongTac: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         primaryKey: true
       },
-      username: {
+      idHc: {
         type: Sequelize.STRING
       },
-      name: {
+      idHcTuongTac: {
         type: Sequelize.STRING
       },
-      email: {
+      mucDo: {
         type: Sequelize.TEXT
       },
-      password: {
+      noiDung: {
         type: Sequelize.STRING
       },
       createdAt: {
@@ -39,6 +39,6 @@ module.exports = (sequelize, Sequelize) => {
       deleted: {
         type: Sequelize.ENUM('true', 'false'),
       }
-    }, {timestamps: false, tableName: 'users'});
-    return User;
+    }, {timestamps: false, tableName: 'tuongTac'});
+    return TuongTac;
   };
