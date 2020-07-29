@@ -30,8 +30,6 @@
     position: relative;
 }
 
-.main-products {}
-
 .main-products h2 {
     font-weight: 700;
     font-family: 'Raleway', sans-serif;
@@ -150,6 +148,10 @@
 
 
 /* ================================================= */
+
+.card-slide {
+    width: 600px;
+}
 
 .slider {
     height: 350px;

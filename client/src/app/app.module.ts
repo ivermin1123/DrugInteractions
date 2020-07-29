@@ -8,6 +8,8 @@ import { SearchComponent } from './components/search/search.component';
 import { FeedbackComponent } from './components/feedback/feedback.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { LoginComponent } from './components/login/login.component';
+import { SingupComponent } from './components/singup/singup.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { FooterComponent } from './components/footer/footer.component';
     FeedbackComponent,
     HeaderComponent,
     FooterComponent,
+    LoginComponent,
+    SingupComponent,
   ],
   imports: [
     BrowserModule,
