@@ -36,6 +36,9 @@ module.exports = (sequelize, Sequelize) => {
         type: Sequelize.INTEGER,
         allowNull: true
       },
+      role: {
+        type: Sequelize.STRING
+      },
       deleted: {
         type: Sequelize.ENUM('true', 'false'),
       }

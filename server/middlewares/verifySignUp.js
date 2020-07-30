@@ -1,6 +1,7 @@
 const db = require("../models");
 const ROLES = db.ROLES;
 const User = db.users;
+const Role = db.role;
 
 checkDuplicateUsernameOrEmail = (req, res, next) => {
     // Username
@@ -35,17 +36,16 @@ checkDuplicateUsernameOrEmail = (req, res, next) => {
 };
 
 checkRolesExisted = (req, res, next) => {
-    console.log(req.body.roles);
     if (req.body.roles) {
-        for (let i = 0; i < req.body.roles.length; i++) {
-            if (!ROLES.includes(req.body.roles[i])) {
-                res.status(400).send({
-                    message: "Failed! Role does not exist = " + req.body.roles[i]
-                });
-                return;
-            }
+        let role = req.body.roles;
+        console.log(role);
+        if(role !== 'admin' && role !== 'user'){
+            res.status(400).send({
+                message: "Roles is not found !!"
+            });
+            return;
         }
-    }
+      }
 
     next();
 };

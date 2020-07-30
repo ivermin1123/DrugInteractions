@@ -15,6 +15,8 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
 <!-- Site Icons -->
 <link rel="shortcut icon" href="assets/images/icons/icon.png" type="image/x-icon" />
 <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
@@ -49,96 +51,96 @@
 
 
 <script>
-    $(document).ready(function() {
-        var swiper = new Swiper('.swiper-container', {
-            loop: true,
-            effect: 'coverflow',
-            centeredSlides: true,
-            loopFillGroupWithBlank: true,
-            slidesPerView: 3,
-            initialSlide: 3,
-            keyboardControl: true,
-            mousewheelControl: false,
-            lazyLoading: true,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-            breakpoints: {
-                1199: {
-                    slidesPerView: 3,
-                    spaceBetween: 30,
-                },
-                991: {
-                    slidesPerView: 3,
-                    spaceBetween: 10,
-                },
-                767: {
-                    slidesPerView: 2,
-                    spaceBetween: 10,
-                },
-                575: {
-                    slidesPerView: 1,
-                    spaceBetween: 3,
-                }
-            }
-        })
-    });
+  $(document).ready(function () {
+    var swiper = new Swiper('.swiper-container', {
+      loop: true,
+      effect: 'coverflow',
+      centeredSlides: true,
+      loopFillGroupWithBlank: true,
+      slidesPerView: 3,
+      initialSlide: 3,
+      keyboardControl: true,
+      mousewheelControl: false,
+      lazyLoading: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      breakpoints: {
+        1199: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        },
+        991: {
+          slidesPerView: 3,
+          spaceBetween: 10,
+        },
+        767: {
+          slidesPerView: 2,
+          spaceBetween: 10,
+        },
+        575: {
+          slidesPerView: 1,
+          spaceBetween: 3,
+        }
+      }
+    })
+  });
 </script>
 <script>
-    $(document).ready(function() {
-        //you can set this, as long as it's not greater than the slides length
-        var show = 5;
-        var w = $('.slider').width() / show - 10;
-        var l = $('.slide').length;
+  $(document).ready(function () {
+    //you can set this, as long as it's not greater than the slides length
+    var show = 5;
+    var w = $('.slider').width() / show - 10;
+    var l = $('.slide').length;
 
-        $('.slide').width(w);
-        $('.slide-container').width(w * l)
+    $('.slide').width(w);
+    $('.slide-container').width(w * l)
 
-        function slider() {
-            $('.slide:first-child').animate({
-                marginLeft: -w
-            }, 'slow', function() {
-                $(this).appendTo($(this).parent()).css({
-                    marginLeft: 0
-                });
-            });
-        }
-        var timer = setInterval(slider, 3000);
-
-        $('.slider').hover(function() {
-            clearInterval(timer);
-        }, function() {
-            timer = setInterval(slider, 3000);
+    function slider() {
+      $('.slide:first-child').animate({
+        marginLeft: -w
+      }, 'slow', function () {
+        $(this).appendTo($(this).parent()).css({
+          marginLeft: 0
         });
+      });
+    }
+    var timer = setInterval(slider, 3000);
+
+    $('.slider').hover(function () {
+      clearInterval(timer);
+    }, function () {
+      timer = setInterval(slider, 3000);
     });
+  });
 </script>
 
 </head>
 
 <body class="app_version" data-spy="scroll" data-target="#navbarApp" data-offset="98">
 
-    <app-root>
-        <!-- LOADER -->
-        <div id="preloader">
-            <img class="preloader" src="assets/images/loaders/loader-app.gif" alt="">
-        </div>
-        <!-- end loader -->
-        <!-- END LOADER -->
-    </app-root>
+  <app-root>
+    <!-- LOADER -->
+    <div id="preloader">
+      <img class="preloader" src="assets/images/loaders/loader-app.gif" alt="">
+    </div>
+    <!-- end loader -->
+    <!-- END LOADER -->
+  </app-root>
 
-    <!-- ALL JS FILES -->
-    <script src="assets/js/all.js"></script>
+  <!-- ALL JS FILES -->
+  <script src="assets/js/all.js"></script>
 
 
-    <!-- ALL PLUGINS -->
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/custom.js"></script>
-    <script src="assets/js/swiper.min.js"></script>
+  <!-- ALL PLUGINS -->
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/custom.js"></script>
+  <script src="assets/js/swiper.min.js"></script>
 
 
 

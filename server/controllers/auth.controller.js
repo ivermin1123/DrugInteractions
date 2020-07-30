@@ -5,31 +5,34 @@ const Role = db.role;
 
 const Op = db.Sequelize.Op;
 
-var jwt = require("jsonwebtoken");
-var bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcryptjs");
 
 exports.signup = (req, res) => {
+  // Check role
+  let _role = 'admin';
+  if (req.body.roles) {
+    if (req.body.roles !== 'admin')
+      _role = 'user';
+  }
   // Save User to Database
   User.create({
     name: req.body.name,
     username: req.body.username,
     email: req.body.email,
     createdAt: Date.now(),
+    updatedAt: Date.now(),
+    role: _role,
     password: bcrypt.hashSync(req.body.password, 8)
   })
-    .then(user => {
-      if (req.body.roles) {
-        let role = req.body.roles;
-        
-      } else {
-        // user role = 1
-        user.setRoles([1]).then(() => {
-          res.send({ message: "User was registered successfully!" });
-        });
-      }
+    .then(data => {
+      res.send(data);
     })
     .catch(err => {
-      res.status(500).send({ message: err.message });
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while creating the User."
+      });
     });
 };
 
@@ -60,18 +63,12 @@ exports.signin = (req, res) => {
         expiresIn: 86400 // 24 hours
       });
 
-      var authorities = [];
-      user.getRoles().then(roles => {
-        for (let i = 0; i < roles.length; i++) {
-          authorities.push("ROLE_" + roles[i].name.toUpperCase());
-        }
-        res.status(200).send({
-          id: user.id,
-          username: user.username,
-          email: user.email,
-          roles: authorities,
-          accessToken: token
-        });
+      res.status(200).send({
+        id: user.id,
+        username: user.username,
+        email: user.email,
+        roles: "ROLE_" + user.role.toUpperCase(),
+        accessToken: token
       });
     })
     .catch(err => {
