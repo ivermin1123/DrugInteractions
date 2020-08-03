@@ -21,7 +21,8 @@
         </div>
         <div class="input-field">
           <i class="fas fa-pencil-square-o "></i>
-          <input type="text" placeholder="Fullname">
+          <input type="text" name="name" [(ngModel)]="form.name" required minlength="3"
+          maxlength="50" #name="ngModel" placeholder="name">
         </div>
         <div class="input-field">
           <i class="fas fa-user"></i>

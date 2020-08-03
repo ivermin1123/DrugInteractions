@@ -10,10 +10,10 @@ const bcrypt = require("bcryptjs");
 
 exports.signup = (req, res) => {
   // Check role
-  let _role = 'admin';
+  let _role = 'user';
   if (req.body.roles) {
-    if (req.body.roles !== 'admin')
-      _role = 'user';
+    if (req.body.roles === 'admin')
+    _role = 'admin';
   }
   // Save User to Database
   User.create({
