@@ -8,15 +8,16 @@ CREATE TABLE `users` (
   `email` varchar(255) COLLATE utf8mb4_bin NOT NULL UNIQUE,
   `password` varchar(255) COLLATE utf8mb4_bin NOT NULL,
   `phone` varchar(255) COLLATE utf8mb4_bin NULL,
-  `accountType` enum('admin','guest') COLLATE utf8mb4_bin NOT NULL DEFAULT 'guest',
-  `createdAt` datetime NULL,
-  `updatedAt` datetime null,
-  `updatedId` int null,
+  `createdAt` datetime not NULL,
+  `updatedAt` datetime not null,
+  `updatedId` int null default 0,
   `deletedAt` datetime null,
   `deletedId` int null,
+  `role` varchar(255) COLLATE utf8mb4_bin NOT NULL default 'user',
   `deleted` enum('true','false') not null default 'false',
   CONSTRAINT `users_pk` PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
 
 CREATE TABLE `search_text`(
   `idSearch` MEDIUMINT NOT NULL AUTO_INCREMENT,
@@ -48,7 +49,7 @@ CREATE TABLE `hoatchat` (
   `qcDongGoi` Longtext COLLATE utf8mb4_bin NULL,
   `HSD` mediumtext NULL,
   `hinhAnhThuoc` varchar(32) COLLATE utf8mb4_bin NULL,
-  `createAt` datetime null,
+  `createdAt` datetime null,
   `updatedAt` datetime null,
   `updatedId` int null,
   `deletedAt` datetime null,
@@ -66,14 +67,14 @@ CREATE TABLE `hoatchat` (
   `noiDung` Longtext NULL,
   `createAt` datetime null,
   `updatedAt` datetime null,
-  `updatedId` int null,
+  `updatedId` int null default 0,
   `deletedAt` datetime null,
   `deletedId` int null,
   `deleted` enum('true','false') not null default 'false',
   CONSTRAINT `tuongTac_pk` PRIMARY KEY (`idTuongTac`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
-insert into `users` (`username`, `name`, `email`, `password`, `accountType`) VALUES ('admin', 'AdminDepTrai', 'admin@druginterac.com', 'toipro', 'admin');
+insert into `users` (`username`, `name`, `email`, `password`, `role`, `createdAt`, `updatedAt`, `updatedId`) VALUES ('admin', 'AdminDepTrai', 'admin@druginterac.com', '$2a$08$T1t3aODUQEAZQefxC8lb6O6iI0bW6dLR4MG1w42bJntSoCKIMkSgm', 'admin', now(), now(), 0);
 INSERT INTO `hc_thuoc` (`idThuoc`, `idHoatchat`) VALUES ('GC-245-16', 'HC-36');
 INSERT INTO `hc_thuoc` (`idThuoc`, `idHoatchat`) VALUES ('GC-246-16', 'HC-516');
 INSERT INTO `hc_thuoc` (`idThuoc`, `idHoatchat`) VALUES ('GC-259-16', 'HC-42');

@@ -1,3 +1,4 @@
+require('dotenv').config();
 module.exports = {
-    secret: "ivermin1123-secret-key"
+    secret: process.env.SECRET_KEY_AUTH
   };
