@@ -1,4 +1,3 @@
-// Initializes dotenv
 require('dotenv').config();
 module.exports = {
     HOST: "localhost",

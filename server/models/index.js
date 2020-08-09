@@ -5,6 +5,7 @@ const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
   host: dbConfig.HOST,
   dialect: dbConfig.dialect,
   operatorsAliases: 0,
+  logging: false,
 
   pool: {
     max: dbConfig.pool.max,
@@ -27,6 +28,5 @@ db.searchText = require("./searchText.model.js")(sequelize, Sequelize);
 db.tuongTac = require("./tuongTac.model.js")(sequelize, Sequelize);
 db.role = require("./role.model.js")(sequelize, Sequelize);
 
-db.ROLES = ["user", "admin", "moderator"];
 
 module.exports = db;

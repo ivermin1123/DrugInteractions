@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const db = require("./models");
+const morgan = require("morgan");
 
 const app = express();
 
@@ -9,18 +10,11 @@ var corsOptions = {
 };
 
 app.use(cors(corsOptions));
-
 // parse requests of content-type - application/json
 app.use(express.json());
-
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
-
-//db sync force
-// db.sequelize.sync({ force: true }).then(() => {
-//     console.log("Drop and re-sync db.");
-//   });
-
+app.use(morgan('tiny'));
 //db sync
 db.sequelize.sync();
 
