@@ -15,7 +15,11 @@ import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './components/login/login.component';
 import { SingupComponent } from './components/singup/singup.component';
 
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 import { authInterceptorProviders } from './helpers/auth.interceptor';
+import { BtnCellRenderer } from './components/btn-cell-renderer/btn-cell-renderer.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,12 +30,14 @@ import { authInterceptorProviders } from './helpers/auth.interceptor';
     FooterComponent,
     LoginComponent,
     SingupComponent,
+    BtnCellRenderer,
   ],
   imports: [
-    AgGridModule.withComponents([]),
+    AgGridModule.withComponents([BtnCellRenderer]),
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    [NgbModule],
     HttpClientModule
   ],
   providers: [authInterceptorProviders],

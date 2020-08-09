@@ -35,4 +35,8 @@ export class HeaderComponent implements OnInit {
     window.location.reload();
   }
 
+  activateClass(subModule){
+    subModule.active = !subModule.active;
+  }
+
 }

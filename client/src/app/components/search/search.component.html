@@ -41,67 +41,22 @@
   style="background-color: rgb(32, 32, 161); height: 40px; color: white; font-size: 20px; text-align: center; "><img
     src="assets/images/icons/icondrugnnew.png"
     style="width: 40px; height: 40px; vertical-align: text-bottom;" /><strong>DANH MỤC THUỐC</strong> </div>
-<div>
+<div class="col-sm-12">
   <ag-grid-angular
       #agGrid
-      style="width:auto; height: 500px;"
-      id="myGrid"
+      style="width:100%; height: 610px; margin-bottom: 40px; display: flex; flex-direction: column;"
+      id="gridDrug"
       class="ag-theme-alpine"
       [columnDefs]="columnDefs"
+      [defaultColDef]="defaultColDef"
       [suppressRowClickSelection]="true"
-      [groupSelectsChildren]="true"
+      [animateRows]="true"
       [debug]="true"
       [enableRangeSelection]="true"
-      [paginationPageSize]="15"
+      [paginationPageSize]="12"
       [pagination]="true"
       [rowData]="rowData"
+      [frameworkComponents]="frameworkComponents"
+      (firstDataRendered)="onFirstDataRendered($event)"
     ></ag-grid-angular>
 </div>
-<!-- <table class="table table-striped">
-    <thead style="background-color: darkred; color: white;">
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-        </tr>
-        <tr>
-            <th scope="row">4</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-        </tr>
-        <tr>
-            <th scope="row">5</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-        </tr>
-        <tr>
-            <th scope="row">6</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-        </tr>
-    </tbody>
-</table> -->
