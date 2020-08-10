@@ -24,15 +24,15 @@
 <div class="download-icons col-sm-12">
   <div class="box-icon">
     <div class="btn-buy apple-button">
-      <a href="#"><img src="assets/images/icons/drug3.png"
+      <a (click)="onBtnActive('drug')"><img src="assets/images/icons/drug3.png"
           style="width: 60px; height: 60px;" /><strong>Thuốc</strong></a>
     </div>
     <div class="btn-buy apple-button">
-      <a href="#"><img src="assets/images/icons/drug4.png" style="width: 60px; height: 60px;" /><strong>Hoạt
+      <a (click)="onBtnActive('hoatChat')"><img src="assets/images/icons/drug4.png" style="width: 60px; height: 60px;" /><strong>Hoạt
           Chất</strong></a>
     </div>
     <div class="btn-buy apple-button">
-      <a href="#"><img src="assets/images/icons/drug2.png" style="width: 60px; height: 60px;" /><strong>Tương
+      <a (click)="onBtnActive('tuongTac')"><img src="assets/images/icons/drug2.png" style="width: 60px; height: 60px;" /><strong>Tương
           Tác</strong></a>
     </div>
   </div>
@@ -42,21 +42,27 @@
     src="assets/images/icons/icondrugnnew.png"
     style="width: 40px; height: 40px; vertical-align: text-bottom;" /><strong>DANH MỤC THUỐC</strong> </div>
 <div class="col-sm-12">
-  <ag-grid-angular
-      #agGrid
-      style="width:100%; height: 610px; margin-bottom: 40px; display: flex; flex-direction: column;"
-      id="gridDrug"
-      class="ag-theme-alpine"
-      [columnDefs]="columnDefs"
-      [defaultColDef]="defaultColDef"
-      [suppressRowClickSelection]="true"
-      [animateRows]="true"
-      [debug]="true"
-      [enableRangeSelection]="true"
-      [paginationPageSize]="12"
-      [pagination]="true"
-      [rowData]="rowData"
-      [frameworkComponents]="frameworkComponents"
-      (firstDataRendered)="onFirstDataRendered($event)"
-    ></ag-grid-angular>
+  <div class="example-header">
+    <button id="btnXuatCSV" class="btn btn-warning btn-lg float-right" (click)="onBtnExport()">
+      Download file CSV
+    </button>
+    <input (keyup)="onQuickFilterChanged($event)" id="quickFilterInput" class="form-control float-right"
+      placeholder="Type text to filter..." />
+  </div>
+  <ag-grid-angular #agGrid
+    style="width:100%; height: 610px; margin-bottom: 40px; display: flex; flex-direction: column;"
+    id="gridDrug"
+    class="ag-theme-alpine"
+    [columnDefs]="columnDefs"
+    [defaultColDef]="defaultColDef"
+    [suppressRowClickSelection]="true"
+    [animateRows]="true"
+    [debug]="true"
+    [enableRangeSelection]="true"
+    [paginationPageSize]="12"
+    [pagination]="true"
+    [rowData]="rowData"
+    [frameworkComponents]="frameworkComponents"
+    (firstDataRendered)="onFirstDataRendered($event)">
+  </ag-grid-angular>
 </div>

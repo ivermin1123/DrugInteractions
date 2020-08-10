@@ -4,6 +4,7 @@
   "description": "project created by ivermin1123 and duythuc4444",
   "main": "server.js",
   "scripts": {
+    "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
